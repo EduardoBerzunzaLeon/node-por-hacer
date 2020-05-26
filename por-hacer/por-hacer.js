@@ -22,8 +22,32 @@ const guardarDB = () => {
 	});	
 }
 
-const getListado =  () => {
+
+const getListado = (visualizacion = 't') => {
 	cargarDB();
+
+	let nuevoListado = [];
+	switch(visualizacion) {
+		case 'c':
+			nuevoListado = listadoPorHacer.filter(tarea => tarea.completado == true);
+			listadoPorHacer = nuevoListado;
+			break;
+
+		case 'i':
+			nuevoListado = listadoPorHacer.filter(tarea => tarea.completado == false);
+			listadoPorHacer = nuevoListado;
+			break;
+
+		case 't':
+			
+			break;
+
+		default:
+			// Muestra todas las tareas
+			listadoPorHacer = [];
+			break;
+	}
+
 	return listadoPorHacer;
 }
 

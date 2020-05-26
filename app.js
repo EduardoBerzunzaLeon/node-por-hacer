@@ -7,7 +7,7 @@ let comando = argv._[0];
 
 switch(comando) {
 	case 'listar':
-		let listado = porHacer.getListado();
+		let listado = porHacer.getListado(argv.visualizacion);
 		for(let tarea of listado){
 			console.log('=========Por Hacer ========'.green);
 			console.log(tarea.descripcion);
